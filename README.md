@@ -135,7 +135,8 @@ The notebook imports everything with `from helpers import *` at the top of the s
 
 ## AI Disclosure
 
-**Tool used:** Claude (Anthropic) via Claude Code, April 2026.
+**Tools used:** Claude (Anthropic) via Claude Code, April 2026; OpenAI Codex,
+April 25 2026, for pre-submission validation and small fixes.
 
 ### Prompts we used (in order)
 
@@ -196,9 +197,17 @@ The notebook imports everything with `from helpers import *` at the top of the s
 > Plot mean_IAT (log x) vs CV, colour by is_malicious_refined, and highlight the
 > mechanical bot region with a translucent rectangle."
 
+**Prompt 7 — pre-submission validation with OpenAI Codex:**
+> "Review the assignment requirements, my submitted ZIP, notebook, code, CSV outputs,
+> and logic. Verify that everything runs, that the ZIP is valid, and fix any issues
+> that could cost points."
+
 ### Working process
 
 We read the assignment PDF and broke it into the same parts as the rubric (A → E + Bonus).
+During the final Codex validation pass, we checked ZIP integrity, notebook validity,
+reproducibility from a clean extraction, CSV shape/labels, and alignment with the PDF
+deliverables.
 We designed the thresholds ourselves based on the EDA histograms (the knee at 30 emails/IP,
 the 1 req/s rate threshold, the entropy > 4 bits cutoff) and used Claude to scaffold
 the helper functions, write the matplotlib boilerplate, and double-check the pandas
