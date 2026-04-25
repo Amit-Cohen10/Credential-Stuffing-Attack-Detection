@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+.ipynb_checkpoints/
+
+# Submission archive (personal info in filename, redundant with repo contents)
+*.zip
