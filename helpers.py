@@ -42,7 +42,10 @@ def shannon_entropy(series):
     # value_counts(normalize=True) gives us the probability of each category
     # without needing a slow Python loop over the group.
     p = series.value_counts(normalize=True)
-    return float(-(p * np.log2(p + 1e-12)).sum())
+    # value_counts(normalize=True) only includes values that actually appear,
+    # so p > 0 always — no need to add epsilon.
+    # We clip at 0 to avoid IEEE-754 "-0.0" on single-value groups.
+    return max(0.0, float(-(p * np.log2(p)).sum()))
 
 
 def zscore(series):
